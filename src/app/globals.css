@@ -1,49 +1,236 @@
+/* ============================================================
+   COMPASS DESIGN STUDIO — Foundations
+   colors_and_type.css
+   ============================================================ */
+
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ----- BRAND PALETTE ----- */
+  --navy: #2A5D7E;
+  --navy-deep: #1F4A66;
+  --navy-ink: #133558;       /* wordmark color */
+  --tan: #E9E3DB;
+  --light-gold: #E1C982;
+  --gold: #AD9A4C;
+  --gold-deep: #9C8842;
+  --ink: #1A2A36;
+  --paper: #F7F4EE;
+  --paper-2: #EFEAE0;
+
+  /* ----- SEMANTIC COLOR ROLES ----- */
+  --bg: var(--paper);
+  --bg-alt: var(--paper-2);
+  --bg-deep: var(--ink);
+  --bg-accent: var(--tan);
+
+  --fg-1: var(--ink);              /* primary text on paper */
+  --fg-2: #6c7884;                 /* muted text */
+  --fg-3: #9aa6b0;                 /* tertiary / captions */
+  --fg-on-dark: var(--paper);
+  --fg-accent: var(--gold);
+  --fg-accent-dark: var(--gold-deep);
+  --fg-accent-light: var(--light-gold);
+  --fg-link: var(--navy-deep);
+
+  --rule: rgba(26, 42, 54, 0.12);
+  --rule-strong: rgba(26, 42, 54, 0.22);
+  --rule-on-dark: rgba(225, 201, 130, 0.25);
+
+  /* ----- STATE / SEMANTIC ----- */
+  --success: #3D8064;
+  --warning: #C99A2E;
+  --danger:  #B04A3A;
+  --info:    var(--navy);
+
+  /* ----- TYPE FAMILIES -----
+     --font-display / --font-body are injected by next/font in layout.tsx
+     (Tenor Sans and Spectral, with Optima/Georgia fallbacks). */
+  --font-mono: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* ----- TYPE SCALE (px) ----- */
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 16px;
+  --text-md: 17px;
+  --text-lg: 21px;
+  --text-xl: 28px;
+  --text-2xl: 36px;
+  --text-3xl: 48px;
+  --text-4xl: 64px;
+  --text-5xl: 96px;
+
+  /* ----- TRACKING / LETTER-SPACING ----- */
+  --track-tight: -0.01em;
+  --track-normal: 0;
+  --track-wide: 0.04em;
+  --track-wider: 0.12em;
+  --track-eyebrow: 0.32em;
+  --track-display: 0.06em;
+  --track-mark: 0.18em;        /* the wordmark tracking */
+
+  /* ----- WEIGHTS ----- */
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ----- LINE HEIGHT ----- */
+  --leading-tight: 1.05;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+
+  /* ----- SPACING (4-pt grid, plus architectural sheet sizes) ----- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 80px;
+  --space-10: 112px;
+
+  /* ----- RADIUS ----- */
+  --radius-none: 0;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 32px;
+  --radius-pill: 999px;
+  /* signature: top-large bottom-small "drafting plate" radius */
+  --radius-plate: 60px 60px 16px 16px;
+
+  /* ----- BORDERS ----- */
+  --border-hair: 1px solid var(--rule);
+  --border-strong: 1px solid var(--rule-strong);
+  --border-accent: 1px solid rgba(173, 154, 76, 0.4);
+
+  /* ----- SHADOWS (architectural — soft + low) ----- */
+  --shadow-1: 0 1px 2px rgba(26,42,54,0.06);
+  --shadow-2: 0 6px 16px -8px rgba(26,42,54,0.18);
+  --shadow-3: 0 18px 36px -20px rgba(26,42,54,0.30);
+  --shadow-4: 0 30px 60px -32px rgba(26,42,54,0.40);
+  --shadow-inset: inset 0 0 0 1px var(--rule);
+
+  /* ----- MOTION ----- */
+  --ease-standard: cubic-bezier(.2,.6,.2,1);
+  --ease-entrance: cubic-bezier(.16,.84,.32,1);
+  --dur-fast: 140ms;
+  --dur-base: 240ms;
+  --dur-slow: 420ms;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* ============================================================
+   BASE TYPOGRAPHY
+   ============================================================ */
 
-html {
-  height: 100%;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+html, body {
+  font-family: var(--font-body);
+  color: var(--fg-1);
+  background: var(--bg);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
+/* Display: Tenor Sans, uppercase, wide tracking */
+.h1, .h2, .h3, h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  color: var(--navy-deep);
+  line-height: var(--leading-tight);
   margin: 0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.h1, h1 { font-size: var(--text-4xl); }
+.h2, h2 { font-size: var(--text-2xl); }
+.h3, h3 { font-size: var(--text-xl); letter-spacing: var(--track-wider); }
+
+/* Sub-display: smaller serif, used for card titles */
+.h4, h4 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-md);
+  letter-spacing: var(--track-wider);
+  text-transform: uppercase;
+  color: var(--navy-deep);
+  line-height: var(--leading-snug);
+  margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+/* Body */
+.body, p {
+  font-family: var(--font-body);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--fg-1);
+  margin: 0;
+}
+
+.body-lg { font-size: var(--text-md); line-height: var(--leading-relaxed); }
+.body-sm { font-size: var(--text-sm); color: var(--fg-2); }
+
+/* Lead — bigger, lighter weight body for hero paragraphs */
+.lead {
+  font-family: var(--font-body);
+  font-weight: var(--weight-light);
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--fg-2);
+}
+
+/* Eyebrow — small, all caps, wide tracking */
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-xs);
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* Caption */
+.caption {
+  font-family: var(--font-body);
+  font-weight: var(--weight-regular);
+  font-size: 10px;
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+/* Mono / code */
+code, .mono {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+
+/* Numerals — tabular, used in specs */
+.num-tabular {
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+/* Wordmark utility (use with the SVG glyph or just text) */
+.wordmark {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--track-mark);
+  color: var(--navy-ink);
+  white-space: nowrap;
+}
+
+/* Rule — gold horizontal divider */
+.rule-gold {
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.5;
+  border: 0;
 }
