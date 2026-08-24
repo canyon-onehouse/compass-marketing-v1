@@ -234,3 +234,36 @@ code, .mono {
   opacity: 0.5;
   border: 0;
 }
+
+/* ============================================================
+   MOBILE NAVIGATION (added in Next.js port — no prototype ref)
+   ============================================================ */
+.nav .nav-menu-btn{
+  display:none;align-items:center;justify-content:center;
+  width:44px;height:44px;padding:0;background:transparent;border:0;
+  color:var(--navy-ink);cursor:pointer;
+}
+.mobile-menu{
+  display:none;
+  position:fixed;top:78px;left:0;right:0;bottom:0;z-index:59;
+  background:var(--paper);
+  border-top:1px solid var(--rule);
+  padding:40px 24px 32px;
+  flex-direction:column;justify-content:space-between;
+  opacity:0;transform:translateY(-8px);pointer-events:none;
+  transition:opacity var(--dur-base,200ms) var(--ease-standard,ease),
+             transform var(--dur-base,200ms) var(--ease-standard,ease);
+}
+.mobile-menu-links{display:flex;flex-direction:column;gap:8px}
+.mobile-menu-links a{
+  font-family:var(--font-display);
+  font-size:var(--text-xl);color:var(--ink);
+  padding:14px 0;border-bottom:1px solid var(--rule);
+}
+.mobile-menu-links a.on{color:var(--gold-deep)}
+.mobile-menu-cta{align-self:stretch;text-align:center;justify-content:center}
+@media (max-width:680px){
+  .nav .nav-menu-btn{display:inline-flex}
+  .mobile-menu{display:flex}
+  .mobile-menu.open{opacity:1;transform:none;pointer-events:auto}
+}
