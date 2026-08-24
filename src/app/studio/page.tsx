@@ -42,7 +42,7 @@ export default function StudioPage() {
           </div>
           <div className="copy">
             <span className="eyebrow">
-              <span className="tick"></span>Est MMXVIII
+              <span className="tick"></span>Est MMXXV
             </span>
             <h2 className="display st">Small on purpose.</h2>
             <p>

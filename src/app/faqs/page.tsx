@@ -60,7 +60,7 @@ export default function FaqsPage() {
                   <div className="fq">
                     <p className="q">Do you take interiors-only work?</p>
                     <p>
-                      Absolutely. We offer a the full range of design services from drafting,
+                      Absolutely. We offer the full range of design services from drafting,
                       full-service residential design, interior design, owner&rsquo;s representation
                       and construction administration services.
                     </p>
@@ -69,7 +69,7 @@ export default function FaqsPage() {
                     <p className="q">How long does a project take?</p>
                     <p>
                       Our most common package (Design Essentials) is a 30-day design process that
-                      covers gets you a set of schematic plans ready for builder pricing.
+                      gets you a set of schematic plans ready for builder pricing.
                     </p>
                   </div>
                   <div className="fq">
