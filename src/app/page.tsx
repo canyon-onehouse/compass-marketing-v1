@@ -23,8 +23,8 @@ export default function HomePage() {
         <div className="shot tone-navy">
           <Image
             className="ph"
-            src="/images/slot-home-feature-project.webp"
-            alt="Hurricane Ranch — modern ranch home exterior at dusk"
+            src="/images/hurricane-exterior.webp"
+            alt="Hurricane Ranch — two-story home in dark-stained board-and-batten and brick under a black standing-seam metal roof, with timber trusses over the entry and balcony"
             fill
             sizes="100vw"
           />

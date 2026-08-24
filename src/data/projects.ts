@@ -45,8 +45,8 @@ export const projects: Project[] = [
       label: 'New Market · 2026',
     },
     hero: {
-      src: '/images/slot-proj-cliff.webp',
-      alt: 'Hurricane Ranch — custom ranch home with deep overhang porch in the Appalachian foothills',
+      src: '/images/hurricane-exterior.webp',
+      alt: 'Hurricane Ranch — two-story home in dark-stained board-and-batten and brick under a black standing-seam metal roof, with timber trusses over the entry and balcony, stone pier bases, and autumn trees behind',
       tone: 'tone-stone',
       capsule: 'Hurricane Ranch · New Market · 2026',
     },
