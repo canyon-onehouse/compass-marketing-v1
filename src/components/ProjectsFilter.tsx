@@ -16,10 +16,17 @@ const TABS: { filter: Filter; label: string }[] = [
 export default function ProjectsFilter() {
   const [filter, setFilter] = useState<Filter>('all');
 
-  // initialize from the URL hash after mount (matches the prototype's deep links)
+  // initialize from the URL hash after mount and follow hash changes
+  // (matches the prototype's #projects / #plans deep links)
   useEffect(() => {
-    const hash = window.location.hash.replace('#', '');
-    if (hash === 'projects' || hash === 'plans') setFilter(hash);
+    const sync = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash === 'projects' || hash === 'plans') setFilter(hash);
+      else if (hash === '') setFilter('all');
+    };
+    sync();
+    window.addEventListener('hashchange', sync);
+    return () => window.removeEventListener('hashchange', sync);
   }, []);
 
   const apply = (f: Filter) => {

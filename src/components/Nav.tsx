@@ -10,9 +10,11 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
 
   // close the drawer whenever the route changes
-  useEffect(() => {
+  const [lastPathname, setLastPathname] = useState(pathname);
+  if (lastPathname !== pathname) {
+    setLastPathname(pathname);
     setOpen(false);
-  }, [pathname]);
+  }
 
   // Escape closes; lock body scroll while open
   useEffect(() => {
@@ -32,6 +34,7 @@ export default function Nav() {
     href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(href + '/');
 
   return (
+    <>
     <header className="nav">
       <div className="wrap row">
         <Link href="/" aria-label="Compass Design Studio — home">
@@ -67,7 +70,10 @@ export default function Nav() {
           </svg>
         </button>
       </div>
+    </header>
 
+      {/* outside the header: its backdrop-filter would otherwise become the
+          containing block for this fixed-position drawer */}
       <div id="mobile-menu" className={`mobile-menu${open ? ' open' : ''}`} aria-hidden={!open}>
         <nav className="mobile-menu-links">
           {NAV_LINKS.map((l) => (
@@ -80,6 +86,6 @@ export default function Nav() {
           Begin a project
         </Link>
       </div>
-    </header>
+    </>
   );
 }
