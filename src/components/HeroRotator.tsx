@@ -53,6 +53,8 @@ export default function HeroRotator() {
         </div>
       ))}
 
+      <div className="veil" aria-hidden="true" />
+
       {/* eslint-disable-next-line @next/next/no-img-element -- SVG logo */}
       <img className="logo" src="/images/compass_wordmark_light.svg" alt="Compass Design Studio" />
 
