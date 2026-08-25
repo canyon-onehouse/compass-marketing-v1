@@ -38,7 +38,9 @@
    HOME — full-bleed hero gallery
    ============================================================ */
 .hg{position:relative;height:calc(100svh - 78px);min-height:480px;overflow:hidden;border-bottom:1px solid var(--rule)}
-.hg .slide{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity 900ms var(--ease-standard)}
+.hg .slide{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity 900ms var(--ease-standard);filter:saturate(.9) brightness(.97)}
+/* ink veil: one flat layer over the whole gallery so the wordmark reads on pale slides */
+.hg .veil{position:absolute;inset:0;background:rgba(26,42,54,.34);z-index:2;pointer-events:none}
 .hg .slide.on{opacity:1;pointer-events:auto}
 .hg .slide img.ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .hg .slide image-slot{position:absolute;inset:0;width:100%;height:100%;display:block}
