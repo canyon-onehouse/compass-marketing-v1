@@ -39,8 +39,8 @@ export const projects: Project[] = [
     meta: 'New Market · In Progress 2026',
     category: 'projects',
     card: {
-      src: '/images/slot-proj-cliff.webp',
-      alt: 'Hurricane Ranch — custom ranch home in the Appalachian foothills',
+      src: '/images/hurricane-exterior.webp',
+      alt: 'Hurricane Ranch — two-story home in dark-stained board-and-batten and brick under a black standing-seam metal roof, with timber trusses and stone pier bases',
       tone: 'tone-stone',
       label: 'New Market · 2026',
     },
