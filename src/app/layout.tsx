@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Tenor_Sans, Spectral } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import './globals.css';
@@ -40,6 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <Footer />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
